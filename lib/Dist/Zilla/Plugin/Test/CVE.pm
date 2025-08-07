@@ -8,6 +8,7 @@ use Sub::Exporter::ForMethods 'method_installer';
 use Data::Dumper::Concise qw( Dumper );
 use Data::Section 0.004 { installer => method_installer }, '-setup';
 use Dist::Zilla::File::InMemory;
+use PerlX::Maybe qw( maybe );
 use Types::Common qw( ConsumerOf NonEmptyStr HashRef );
 
 use namespace::autoclean;
@@ -21,7 +22,7 @@ with qw(
   Dist::Zilla::Role::PrereqSource
 );
 
-our $VERSION = 'v0.0.3';
+our $VERSION = 'v0.0.4';
 
 has filename => (
     is      => 'ro',
@@ -89,16 +90,20 @@ sub gather_files($self) {
 
 sub munge_files($self) {
 
-    my $args = my $text = Dumper( $self->_test_args ) =~ s/\A\{/(/r =~ s/\}\n\Z/)/rm;
+    my $args      = $self->_test_args;
+    my $args_perl = my $text = Dumper($args) =~ s/\A\{/(/r =~ s/\}\n\Z/)/rm;
+
+    my $author = $args->{author} ? "use Test2::Require::AuthorTesting;" : "";
 
     my $file = $self->_file_obj;
     $file->content(
         $self->fill_in_string(
             $file->content,
             {
-                dist   => \( $self->zilla ),
-                plugin => \$self,
-                args   => $args,
+                dist      => \( $self->zilla ),
+                plugin    => \$self,
+                author    => $author,
+                args_perl => $args_perl,
             },
         )
     );
@@ -106,14 +111,18 @@ sub munge_files($self) {
 }
 
 sub register_prereqs($self) {
+
+    my $author = $self->_test_args->{author} ? 0 : undef;
+
     $self->zilla->register_prereqs(
         {
             phase => 'develop',
             type  => 'requires',
         },
-        'Test2::Require::AuthorTesting' => 0,
-        'Test2::V0'                     => 0,
-        'Test::CVE'                     => '0.10',
+        maybe
+          'Test2::Require::AuthorTesting' => $author,
+        'Test2::V0' => 0,
+        'Test::CVE' => '0.10',
     );
 }
 
@@ -128,11 +137,11 @@ ___[ __TEST__ ]___
 use v5.14;
 use warnings;
 
-use Test2::Require::AuthorTesting;
+{{ $author }}
 
 use Test2::V0;
 use Test::CVE;
 
-has_no_cves{{ $args }};
+has_no_cves{{ $args_perl }};
 
 done_testing;
