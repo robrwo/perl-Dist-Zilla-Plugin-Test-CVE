@@ -8,7 +8,7 @@ use Sub::Exporter::ForMethods 'method_installer';
 use Data::Dumper::Concise qw( Dumper );
 use Data::Section 0.004 { installer => method_installer }, '-setup';
 use Dist::Zilla::File::InMemory;
-use Moose::Util::TypeConstraints qw( role_type );
+use Types::Common qw( ConsumerOf NonEmptyStr HashRef );
 
 use namespace::autoclean;
 
@@ -21,23 +21,23 @@ with qw(
   Dist::Zilla::Role::PrereqSource
 );
 
-our $VERSION = '0.0.2';
+our $VERSION = 'v0.0.3';
 
 has filename => (
     is      => 'ro',
-    isa     => 'Str',
+    isa     => NonEmptyStr,
     lazy    => 1,
     default => sub { return 'xt/author/cve.t' },
 );
 
 has _file_obj => (
     is  => 'rw',
-    isa => role_type('Dist::Zilla::Role::File'),
+    isa => ConsumerOf ['Dist::Zilla::Role::File'],
 );
 
 has _test_args => (
     is      => 'ro',
-    isa     => 'HashRef',
+    isa     => HashRef,
     default => sub { {} },
 );
 
