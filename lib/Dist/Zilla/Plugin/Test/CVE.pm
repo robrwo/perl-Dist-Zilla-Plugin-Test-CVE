@@ -5,6 +5,7 @@ use v5.20;
 use Moose;
 
 use Sub::Exporter::ForMethods 'method_installer';
+use Data::Dumper::Concise qw( Dumper );
 use Data::Section 0.004 { installer => method_installer }, '-setup';
 use Dist::Zilla::File::InMemory;
 use Moose::Util::TypeConstraints qw( role_type );
@@ -20,7 +21,7 @@ with qw(
   Dist::Zilla::Role::PrereqSource
 );
 
-our $VERSION = '0.0.1';
+our $VERSION = '0.0.2';
 
 has filename => (
     is      => 'ro',
@@ -34,10 +35,40 @@ has _file_obj => (
     isa => role_type('Dist::Zilla::Role::File'),
 );
 
+has _test_args => (
+    is      => 'ro',
+    isa     => 'HashRef',
+    default => sub { {} },
+);
+
+around plugin_from_config => sub( $orig, $class, $name, $args, $section ) {
+    my %module_args;
+
+    for my $key ( keys $args->%* ) {
+        if ( $key =~ s/^-// ) {
+            die "$key cannot be set" if $key eq "_test_args";
+            $module_args{$key} = $args->{"-$key"};
+        }
+        else {
+            $module_args{_test_args}{$key} = $args->{$key};
+        }
+    }
+
+    $module_args{filename} = delete $module_args{_test_args}{filename} if $module_args{_test_args}{filename};
+
+    $module_args{_test_args}{author} //= 1;
+    $module_args{_test_args}{deps}   //= 1;
+    $module_args{_test_args}{core}   //= 1;
+    $module_args{_test_args}{perl}   //= 0;
+
+    return $class->$orig( $name, \%module_args, $section );
+};
+
 around dump_config => sub( $orig, $self ) {
     my $config = $self->$orig;
     $config->{ +__PACKAGE__ } = {
-        filename => $self->filename,
+        filename   => $self->filename,
+        _test_args => $self->_test_args,
         blessed($self) ne __PACKAGE__ ? ( version => $VERSION ) : (),
     };
     return $config;
@@ -58,6 +89,8 @@ sub gather_files($self) {
 
 sub munge_files($self) {
 
+    my $args = my $text = Dumper( $self->_test_args ) =~ s/\A\{/(/r =~ s/\}\n\Z/)/rm;
+
     my $file = $self->_file_obj;
     $file->content(
         $self->fill_in_string(
@@ -65,6 +98,7 @@ sub munge_files($self) {
             {
                 dist   => \( $self->zilla ),
                 plugin => \$self,
+                args   => $args,
             },
         )
     );
@@ -99,11 +133,6 @@ use Test2::Require::AuthorTesting;
 use Test2::V0;
 use Test::CVE;
 
-has_no_cves(
-    author => 1,
-    deps   => 1,
-    core   => 1,
-    perl   => 0,
-);
+has_no_cves{{ $args }};
 
 done_testing;

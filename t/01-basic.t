@@ -67,7 +67,13 @@ is(
                     class  => 'Dist::Zilla::Plugin::Test::CVE',
                     config => {
                         'Dist::Zilla::Plugin::Test::CVE' => {
-                            filename => 'xt/author/cve.t',
+                            filename   => 'xt/author/cve.t',
+                            _test_args => {
+                                author => 1,
+                                core   => 1,
+                                deps   => 1,
+                                perl   => 0,
+                            },
                         },
                     },
                     name    => 'Test::CVE',
