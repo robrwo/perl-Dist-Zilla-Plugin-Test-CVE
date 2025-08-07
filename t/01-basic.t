@@ -55,9 +55,9 @@ is(
         field prereqs => {
             develop => {
                 requires => {
-        'Test2::Require::AuthorTesting' => 0,
-        'Test2::V0'                     => 0,
-        'Test::CVE'                     => '0.10',
+                    'Test2::Require::AuthorTesting' => 0,
+                    'Test2::V0'                     => 0,
+                    'Test::CVE'                     => '0.10',
                 },
             },
         };
