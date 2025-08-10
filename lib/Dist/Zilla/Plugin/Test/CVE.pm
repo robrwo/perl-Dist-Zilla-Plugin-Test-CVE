@@ -23,7 +23,7 @@ with qw(
   Dist::Zilla::Role::PrereqSource
 );
 
-our $VERSION = 'v0.0.5';
+our $VERSION = 'v0.0.6';
 
 has filename => (
     is      => 'ro',

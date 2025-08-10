@@ -98,7 +98,14 @@ my $tests;
 subtest 'run the generated test' => sub {
     local $ENV{AUTHOR_TESTING} = 1;
     my $wd = pushd $build_dir;
-    do $file;
+
+    my $script = << "SCRIPT";
+    package _Local::main;
+    do '$file';
+SCRIPT
+
+    eval $script;
+
     note 'ran tests successfully' if not $@;
     fail($@)                      if $@;
     my $ctx = context();
