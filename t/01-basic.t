@@ -4,6 +4,8 @@ use warnings;
 use Test2::V0;
 use Test::Warnings 0.009 qw( :no_end_test had_no_warnings );
 use Test::DZil;
+
+use Data::Dumper 2.154 qw( Dumper );
 use Path::Tiny;
 use File::pushd qw( pushd );
 
@@ -86,7 +88,7 @@ is(
         etc;
     },
     'prereqs are properly injected for the develop phase',
-) or diag 'got distmeta: ', explain $tzil->distmeta;
+) or diag 'got distmeta: ', Dumper( $tzil->distmeta );
 
 # not needed, but Test::EOL (pre-1.5) loads it from the generated test, and $0
 # is wrong for it
@@ -103,7 +105,7 @@ subtest 'run the generated test' => sub {
     $ctx->release;
 };
 is( $tests, 1, 'expected result' );
-diag 'got log messages: ', explain $tzil->log_messages
+diag 'got log messages: ', Dumper( $tzil->log_messages )
   if not Test::Builder->new->is_passing;
 had_no_warnings if $ENV{AUTHOR_TESTING};
 done_testing;
