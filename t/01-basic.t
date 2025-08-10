@@ -90,9 +90,6 @@ is(
     'prereqs are properly injected for the develop phase',
 ) or diag 'got distmeta: ', Dumper( $tzil->distmeta );
 
-# not needed, but Test::EOL (pre-1.5) loads it from the generated test, and $0
-# is wrong for it
-use FindBin;
 my $tests;
 subtest 'run the generated test' => sub {
     local $ENV{AUTHOR_TESTING} = 1;
