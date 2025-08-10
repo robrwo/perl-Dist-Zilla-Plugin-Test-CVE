@@ -9,6 +9,7 @@ use Data::Dumper::Concise qw( Dumper );
 use Data::Section 0.004 { installer => method_installer }, '-setup';
 use Dist::Zilla::File::InMemory;
 use PerlX::Maybe qw( maybe );
+use Test::CVE ();
 use Types::Common qw( ConsumerOf NonEmptyStr HashRef );
 
 use namespace::autoclean;
