@@ -25,7 +25,7 @@ with qw(
   Dist::Zilla::Role::PrereqSource
 );
 
-our $VERSION = 'v0.0.7';
+our $VERSION = 'v0.1.0';
 
 =head1 SYNOPSIS
 
