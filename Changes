@@ -1,0 +1,4 @@
+Release history for {{ $dist->name }}:
+
+{{$NEXT}}
+  - Initial prototype published on CPAN.
