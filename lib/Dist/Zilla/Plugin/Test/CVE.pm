@@ -1,5 +1,7 @@
 package Dist::Zilla::Plugin::Test::CVE;
 
+# ABSTRACT: add tests for known CVEs
+
 use v5.20;
 
 use Moose;
@@ -23,7 +25,30 @@ with qw(
   Dist::Zilla::Role::PrereqSource
 );
 
-our $VERSION = 'v0.0.6';
+our $VERSION = 'v0.0.7';
+
+=head1 SYNOPSIS
+
+In the F<dist.ini>:
+
+    [Test::CVE]
+    filename = xt/author/cve.t
+    author = 1
+    deps   = 1
+    core   = 1
+    perl   = 0
+
+=head1 DESCRIPTION
+
+This is a L<Dist::Zilla> plugin to add L<Test::CVE> author tests to a distribution for known CVEs.
+
+=cut
+
+=option filename
+
+This is the test filename.  It defaults to F<xt/author/cve.t>.
+
+=cut
 
 has filename => (
     is      => 'ro',
@@ -130,6 +155,13 @@ sub register_prereqs($self) {
 __PACKAGE__->meta->make_immutable;
 
 1;
+
+=head1 SECURITY CONSIDERATIONS
+
+This will only identify known CVEs in list dependencies.
+It may not identify CVEs in undeclared prerequisites or deep prerequisites.
+
+=cut
 
 __DATA__
 ___[ __TEST__ ]___
