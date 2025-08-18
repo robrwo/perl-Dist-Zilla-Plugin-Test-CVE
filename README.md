@@ -72,12 +72,22 @@ For more information, see [How to install CPAN modules](https://www.cpan.org/mod
 
 # SUPPORT
 
+Only the latest version of this module will be supported.
+
+This module requires Perl v5.20 or later.  Future releases may only support Perl versions released in the last ten
+years.
+
+## Reporting Bugs and Submitting Feature Requests
+
 Please report any bugs or feature requests on the bugtracker website
 [https://github.com/robrwo/perl-Dist-Zilla-Plugin-Test-CVE/issues](https://github.com/robrwo/perl-Dist-Zilla-Plugin-Test-CVE/issues)
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
 feature.
+
+If the bug you are reporting has security implications which make it inappropriate to send to a public issue tracker,
+then see `SECURITY.md` for instructions how to report security vulnerabilities.
 
 # SOURCE
 
