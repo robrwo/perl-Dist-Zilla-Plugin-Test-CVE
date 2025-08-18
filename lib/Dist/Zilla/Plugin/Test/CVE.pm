@@ -27,6 +27,14 @@ with qw(
 
 our $VERSION = 'v0.1.0';
 
+=begin :meta
+
+=for stopwords CVEs
+
+=for Pod::Coverage gather_files munge_files register_prereqs
+
+=end :meta
+
 =head1 SYNOPSIS
 
 In the F<dist.ini>:
