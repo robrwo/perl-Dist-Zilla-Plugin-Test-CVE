@@ -25,11 +25,7 @@ This module lists the following modules as runtime dependencies:
 
 - [Data::Dumper::Concise](https://metacpan.org/pod/Data%3A%3ADumper%3A%3AConcise)
 - [Data::Section](https://metacpan.org/pod/Data%3A%3ASection) version 0.004 or later
-- [Dist::Zilla::File::InMemory](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3AFile%3A%3AInMemory)
-- [Dist::Zilla::Role::FileGatherer](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3ARole%3A%3AFileGatherer)
-- [Dist::Zilla::Role::FileMunger](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3ARole%3A%3AFileMunger)
-- [Dist::Zilla::Role::PrereqSource](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3ARole%3A%3APrereqSource)
-- [Dist::Zilla::Role::TextTemplate](https://metacpan.org/pod/Dist%3A%3AZilla%3A%3ARole%3A%3ATextTemplate)
+- [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla)
 - [Moose](https://metacpan.org/pod/Moose)
 - [PerlX::Maybe](https://metacpan.org/pod/PerlX%3A%3AMaybe)
 - [Sub::Exporter::ForMethods](https://metacpan.org/pod/Sub%3A%3AExporter%3A%3AForMethods)

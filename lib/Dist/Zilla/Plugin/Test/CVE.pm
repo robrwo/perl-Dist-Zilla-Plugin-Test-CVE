@@ -9,6 +9,7 @@ use Moose;
 use Sub::Exporter::ForMethods 'method_installer';
 use Data::Dumper::Concise qw( Dumper );
 use Data::Section 0.004 { installer => method_installer }, '-setup';
+use Dist::Zilla ();
 use Dist::Zilla::File::InMemory;
 use PerlX::Maybe qw( maybe );
 use Test::CVE ();

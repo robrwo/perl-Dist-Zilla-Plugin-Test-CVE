@@ -3,11 +3,7 @@
 
 requires "Data::Dumper::Concise" => "0";
 requires "Data::Section" => "0.004";
-requires "Dist::Zilla::File::InMemory" => "0";
-requires "Dist::Zilla::Role::FileGatherer" => "0";
-requires "Dist::Zilla::Role::FileMunger" => "0";
-requires "Dist::Zilla::Role::PrereqSource" => "0";
-requires "Dist::Zilla::Role::TextTemplate" => "0";
+requires "Dist::Zilla" => "0";
 requires "Moose" => "0";
 requires "PerlX::Maybe" => "0";
 requires "Sub::Exporter::ForMethods" => "0";
