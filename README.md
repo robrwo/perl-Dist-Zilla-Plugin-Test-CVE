@@ -91,7 +91,7 @@ It may not identify CVEs in undeclared prerequisites or deep prerequisites.
 
 The results from running [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE) on a CPAN distribution may or may not be useful.
 
-If there is a fix available for a CVE, then authors can update the minimum version of that prerequsite.
+If there is a fix available for a CVE, then authors can update the minimum version of that prerequisite.
 
 If there is no fix, then authors may have no choice but to add the issue to the `skip` list.
 There is the risk that authors will forget about skipped security issues if they remain unfixed for a long time.
