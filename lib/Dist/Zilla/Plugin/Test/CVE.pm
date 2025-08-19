@@ -167,7 +167,7 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 SECURITY CONSIDERATIONS
 
-This will only identify known CVEs in list dependencies.
+This will only identify known CVEs in listed dependencies.
 It may not identify CVEs in undeclared prerequisites or deep prerequisites.
 
 The results from running L<Test::CVE> on a CPAN distribution may or may not be useful.

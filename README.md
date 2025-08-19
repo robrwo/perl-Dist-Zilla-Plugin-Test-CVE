@@ -23,13 +23,10 @@ Note that this module is _experimental_.  See ["SECURITY CONSIDERATIONS"](#secur
 
 # RECENT CHANGES
 
-Changes for version v0.1.2 (2025-08-19)
+Changes for version v0.1.3 (2025-08-19)
 
-- Enhancements
-    - Internal code improvements.
 - Documentation
-    - Added a discussion of the risks associated with the use/misuse of Test::CVE in the SECURITY CONSIDERATIONS.
-    - Include SECURITY CONSIDERATIONS in the README.
+    - Fixed typos.
 
 See the `Changes` file for more details.
 
@@ -86,7 +83,7 @@ For more information, see [How to install CPAN modules](https://www.cpan.org/mod
 
 # SECURITY CONSIDERATIONS
 
-This will only identify known CVEs in list dependencies.
+This will only identify known CVEs in listed dependencies.
 It may not identify CVEs in undeclared prerequisites or deep prerequisites.
 
 The results from running [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE) on a CPAN distribution may or may not be useful.
