@@ -1,6 +1,9 @@
 Release history for {{ $dist->name }}:
 
 {{$NEXT}}
+  [Bug Fixes]
+  - Addded missing pragma to explicitly enable postderef.
+
   [Toolchain]
   - Added GitHub Workflow for testing.
 

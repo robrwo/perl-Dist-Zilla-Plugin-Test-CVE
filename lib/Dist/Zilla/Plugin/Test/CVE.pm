@@ -17,7 +17,7 @@ use Types::Common qw( ConsumerOf NonEmptyStr HashRef );
 
 use namespace::autoclean;
 
-use experimental qw( signatures );
+use experimental qw( postderef signatures );
 
 with qw(
   Dist::Zilla::Role::FileGatherer
