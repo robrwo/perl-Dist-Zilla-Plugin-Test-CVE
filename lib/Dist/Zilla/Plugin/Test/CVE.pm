@@ -51,6 +51,8 @@ In the F<dist.ini>:
 
 This is a L<Dist::Zilla> plugin to add L<Test::CVE> author tests to a distribution for known CVEs.
 
+Note that this module is I<experimental>.  See L</SECURITY CONSIDERATIONS>.
+
 =cut
 
 =option filename
@@ -169,6 +171,16 @@ __PACKAGE__->meta->make_immutable;
 
 This will only identify known CVEs in list dependencies.
 It may not identify CVEs in undeclared prerequisites or deep prerequisites.
+
+The results from running L<Test::CVE> on a CPAN distribution may or may not be useful.
+
+If there is a fix available for a CVE, then authors can update the minimum version of that prerequsite.
+
+If there is no fix, then authors may have no choice but to add the issue to the C<skip> list.
+There is the risk that authors will forget about skipped security issues if they remain unfixed for a long time.
+
+There is also a risk that authors may add issues to the C<skip> list if this test blocks a release,
+and then forget to remove the issue when a fix is released.
 
 =head1 append:CONFIGURATION OPTIONS
 

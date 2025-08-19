@@ -19,15 +19,15 @@ perl   = 0
 
 This is a [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla) plugin to add [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE) author tests to a distribution for known CVEs.
 
+Note that this module is _experimental_.  See ["SECURITY CONSIDERATIONS"](#security-considerations).
+
 # RECENT CHANGES
 
-Changes for version v0.1.1 (2025-08-19)
+Changes for version v0.1.2 (2025-08-19)
 
-- Bug Fixes
-    - Addded missing pragma to explicitly enable postderef.
-    - Specified minimum version of Test::CVE.
-- Toolchain
-    - Added GitHub Workflow for testing.
+- Documentation
+    - Added a discussion of the risks associated with the use/misuse of Test::CVE in the SECURITY CONSIDERATIONS.
+    - Include SECURITY CONSIDERATIONS in the README.
 
 See the `Changes` file for more details.
 
@@ -81,6 +81,21 @@ dzil install --install-command="cpan ."
 ```
 
 For more information, see [How to install CPAN modules](https://www.cpan.org/modules/INSTALL.html).
+
+# SECURITY CONSIDERATIONS
+
+This will only identify known CVEs in list dependencies.
+It may not identify CVEs in undeclared prerequisites or deep prerequisites.
+
+The results from running [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE) on a CPAN distribution may or may not be useful.
+
+If there is a fix available for a CVE, then authors can update the minimum version of that prerequsite.
+
+If there is no fix, then authors may have no choice but to add the issue to the `skip` list.
+There is the risk that authors will forget about skipped security issues if they remain unfixed for a long time.
+
+There is also a risk that authors may add issues to the `skip` list if this test blocks a release,
+and then forget to remove the issue when a fix is released.
 
 # SUPPORT
 
