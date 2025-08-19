@@ -29,7 +29,7 @@ This module lists the following modules as runtime dependencies:
 - [Moose](https://metacpan.org/pod/Moose)
 - [PerlX::Maybe](https://metacpan.org/pod/PerlX%3A%3AMaybe)
 - [Sub::Exporter::ForMethods](https://metacpan.org/pod/Sub%3A%3AExporter%3A%3AForMethods)
-- [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE)
+- [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE) version 0.10 or later
 - [Types::Common](https://metacpan.org/pod/Types%3A%3ACommon)
 - [experimental](https://metacpan.org/pod/experimental)
 - [namespace::autoclean](https://metacpan.org/pod/namespace%3A%3Aautoclean)

@@ -4,6 +4,8 @@ Release history for {{ $dist->name }}:
   [Bug Fixes]
   - Addded missing pragma to explicitly enable postderef.
 
+  - Specified minimum version of Test::CVE.
+
   [Toolchain]
   - Added GitHub Workflow for testing.
 

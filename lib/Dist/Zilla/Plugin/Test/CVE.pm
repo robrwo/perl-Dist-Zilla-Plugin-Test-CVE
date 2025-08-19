@@ -12,7 +12,7 @@ use Data::Section 0.004 { installer => method_installer }, '-setup';
 use Dist::Zilla ();
 use Dist::Zilla::File::InMemory;
 use PerlX::Maybe qw( maybe );
-use Test::CVE ();
+use Test::CVE 0.10 ();
 use Types::Common qw( ConsumerOf NonEmptyStr HashRef );
 
 use namespace::autoclean;
@@ -200,7 +200,7 @@ use warnings;
 {{ $author }}
 
 use Test2::V0;
-use Test::CVE;
+use Test::CVE 0.10;
 
 has_no_cves{{ $args_perl }};
 
