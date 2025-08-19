@@ -1,6 +1,8 @@
 Release history for {{ $dist->name }}:
 
 {{$NEXT}}
+
+v0.1.2    2025-08-19 17:20:41+01:00 Europe/London
   [Enhancements]
   - Internal code improvements.
 
