@@ -165,8 +165,6 @@ sub register_prereqs($self) {
 
 __PACKAGE__->meta->make_immutable;
 
-1;
-
 =head1 SECURITY CONSIDERATIONS
 
 This will only identify known CVEs in list dependencies.
