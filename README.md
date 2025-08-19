@@ -19,6 +19,18 @@ perl   = 0
 
 This is a [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla) plugin to add [Test::CVE](https://metacpan.org/pod/Test%3A%3ACVE) author tests to a distribution for known CVEs.
 
+# RECENT CHANGES
+
+Changes for version v0.1.1 (2025-08-19)
+
+- Bug Fixes
+    - Addded missing pragma to explicitly enable postderef.
+    - Specified minimum version of Test::CVE.
+- Toolchain
+    - Added GitHub Workflow for testing.
+
+See the `Changes` file for more details.
+
 # REQUIREMENTS
 
 This module lists the following modules as runtime dependencies:
