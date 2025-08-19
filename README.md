@@ -25,6 +25,8 @@ Note that this module is _experimental_.  See ["SECURITY CONSIDERATIONS"](#secur
 
 Changes for version v0.1.2 (2025-08-19)
 
+- Enhancements
+    - Internal code improvements.
 - Documentation
     - Added a discussion of the risks associated with the use/misuse of Test::CVE in the SECURITY CONSIDERATIONS.
     - Include SECURITY CONSIDERATIONS in the README.

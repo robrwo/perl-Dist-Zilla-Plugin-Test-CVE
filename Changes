@@ -1,6 +1,9 @@
 Release history for {{ $dist->name }}:
 
 {{$NEXT}}
+  [Enhancements]
+  - Internal code improvements.
+
   [Documentation]
   - Added a discussion of the risks associated with the use/misuse of Test::CVE in the SECURITY CONSIDERATIONS.
 
