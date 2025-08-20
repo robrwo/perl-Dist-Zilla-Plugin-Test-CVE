@@ -23,9 +23,10 @@ Note that this module is _experimental_.  See ["SECURITY CONSIDERATIONS"](#secur
 
 # RECENT CHANGES
 
-Changes for version v0.1.3 (2025-08-19)
+Changes for version v0.1.3 (2025-08-20)
 
 - Documentation
+    - Updated SUPPORT to clarify the minimum Perl version.
     - Fixed typos.
 
 See the `Changes` file for more details.
@@ -100,8 +101,7 @@ and then forget to remove the issue when a fix is released.
 
 Only the latest version of this module will be supported.
 
-This module requires Perl v5.20 or later.  Future releases may only support Perl versions released in the last ten
-years.
+This module requires Perl v5.20 or later, based on the minimum Perl supported by [Dist::Zilla](https://metacpan.org/pod/Dist%3A%3AZilla).
 
 ## Reporting Bugs and Submitting Feature Requests
 

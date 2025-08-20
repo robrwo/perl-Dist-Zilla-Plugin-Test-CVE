@@ -2,6 +2,8 @@ Release history for {{ $dist->name }}:
 
 {{$NEXT}}
   [Documentation]
+  - Updated SUPPORT to clarify the minimum Perl version.
+
   - Fixed typos.
 
 v0.1.2    2025-08-19 17:20:41+01:00 Europe/London
